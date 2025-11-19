@@ -45,19 +45,7 @@ describe('template spec', () => {
     
     cy.get('#save-and-continue-btn').click();
     cy.get('#place-order-btn').click();
-    //cy.get('#btn_account_link_nav').click();
-    /*cy.get('[data-testid="subscriptions"] tl-stack.sc-tl-stack-h').click();
     
-    cy.get('tr:nth-of-type(1) [data-testid="brand-header"] span.block').contains(searchSelector.firstSearch);
-    
-    cy.get('tr:nth-of-type(2) [data-testid="brand-header"] span.block').should('Groupeddd');
-    
-    cy.get('tr:nth-of-type(3) [data-testid="brand-header"] span.block').should('Starter Refil - bread & cheese');
-    cy.get('#page-taly th:nth-child(1) div.border').click();
-    cy.get('#page-taly button.text-error-700').click();
-    cy.get('#radix-\\:r2p\\: button.text-base-light tl-loading.sc-tl-button').click();
-    
-    */
     cy.get('#btn_account_link_nav rect.w-full').click();
     cy.get('[data-testid="subscriptions"] tl-stack.sc-tl-stack-h').click();
     cy.get('#header svg.text-gray-900').click();
