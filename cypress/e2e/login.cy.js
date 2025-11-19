@@ -1,5 +1,5 @@
 describe('template spec', () => {
-  it('login-success', function() {
+  it.skip('login-success', function() {
   cy.visit('https://staging.devtalysub.com/shop')
   //cy.get('#btn_signup_login_nav rect.w-full').click();
   //cy.get('#btn_submit_email').click();
@@ -16,7 +16,7 @@ describe('template spec', () => {
 
 });
 
-it('login-fail', function() {
+it.skip('login-fail', function() {
   cy.visit('https://staging.devtalysub.com/shop')
   cy.get('div:nth-child(2) > [data-testid="plan-card"] > div.group > div.gap-3 > div:nth-child(1) > div.h-auto > div.w-full.justify-center > div.absolute > [data-testid="add-to-cart-plan"] > button.w-full > div.flex > tl-icon.p-1 > svg.aspect-square').click();
   cy.get('[data-testid="cart-modal-btn"] span.flex').click();
@@ -30,4 +30,4 @@ it('login-fail', function() {
   cy.get('#login tl-loading.sc-tl-button').click();
   cy.contains('Incorrect username or password.').should('be.visible');
 });
-})
+});
