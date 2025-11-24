@@ -14,12 +14,12 @@ class LoginPage{
        cy.visit('/cart-schedule') 
     }
 
-    loginWithUser(login){
+    setUser(login){
         cy.get(this.selectorList().userNameField).type(login, { delay: 0 })
         
     }
 
-    loginsWithPassword(password){
+    setPassword(password){
         cy.get(this.selectorList().passwordField).type(password)
     }
 

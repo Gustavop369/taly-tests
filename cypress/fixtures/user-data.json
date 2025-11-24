@@ -2,5 +2,11 @@
     "userAcess": {
         "login" : "gustavo+auttest@wearetaly.com",
         "password" : "Gustavo@369"
+    },
+
+     "userWrongAcess": {
+        "loginEmail" : "gdgfdgsdgfdgfd@wearetaly.com",
+        "loginWrongEmail": "dhasdhsadga",
+        "password" : "gdfgfdgfdgdfgfgd"
     }
 }

@@ -38,9 +38,9 @@ const subscriptionslist = {
 describe('template spec', () => {
   it('passes', () => {
     loginPage.acessLoginPage()
-    loginPage.loginWithUser(userData.userAcess.login)
+    loginPage.setUser(userData.userAcess.login)
     loginPage.continueButton()
-    loginPage.loginsWithPassword(userData.userAcess.password)
+    loginPage.setPassword(userData.userAcess.password)
     loginPage.submitButton()
 
     searchPage.searchBar(searchSelector.firstSearch, searchSelector.selectFirstPlan)
@@ -73,6 +73,7 @@ describe('template spec', () => {
     mySubscriptionsPage.planCheck(subscriptionslist.thirdItem, searchSelector.thirdSearch)
 
     mySubscriptionsPage.markAllCheckboxes()
+    mySubscriptionsPage.deleteConfirmButtonClick()
     mySubscriptionsPage.cancelButtonClick()
 
   })

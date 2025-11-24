@@ -1,23 +1,33 @@
+import UserData from "../fixtures/user-data.json"
+import LoginPage from "../pages/loginPage";
+import CheckoutPage from "../pages/checkoutPage";
+
+const loginPage = new LoginPage();
+const checkout = new CheckoutPage();
+
+
+
 describe('template spec', () => {
-  it.skip('login-success', function() {
-  cy.visit('/shop')
-  //cy.get('#btn_signup_login_nav rect.w-full').click();
-  //cy.get('#btn_submit_email').click();
-  cy.get('[data-testid="snacks"] div.media-text-container').click();
-  cy.get('div.gap-4 div:nth-child(2) [data-testid="plan-card"] div.group div.gap-3 div:nth-child(1) div.h-auto div.w-full.justify-center div.absolute [data-testid="add-to-cart-plan"] button.w-full div.flex tl-icon.p-1 svg.aspect-square').click();
-  cy.get('[data-testid="cart-modal-btn"] span.flex').click();
-  cy.get('[data-testid="cart-modal-btn"] span.flex').click();
-  cy.get('#username [name="email"]').type('gustavo+office3@wearetaly.com');
-  cy.get('#continue tl-loading.sc-tl-button').click();
-  cy.get('#password input.pl-3').type('Gustavo@369');
-  cy.get('#login tl-loading.sc-tl-button').click();
-  cy.get('#btn_cart_page_nav span.block').click();
-  cy.contains('Delivery Dates').should('be.visible');
+  it('Login Success', function() {
+  loginPage.acessLoginPage()
+  loginPage.setUser(UserData.userAcess.login)
+  loginPage.continueButton()
+  loginPage.setPassword(UserData.userAcess.password)
+  loginPage.submitButton()
 
-});
+  checkout.checkIfUserLoggedin()
+  });
 
-it.skip('login-fail', function() {
-  cy.visit('/shop')
+it.only('Login Fail Wrong Email', function() {
+  loginPage.acessLoginPage()
+  loginPage.setUser(UserData.userWrongAcess.login)
+  loginPage.continueButton()
+  cy.contains('Please, provide a valid email address.').should('be.visible');
+  //loginPage.setPassword(UserData.userWrongAcess.password)
+  //loginPage.submitButton()
+
+  
+  /*cy.visit('/shop')
   cy.get('div:nth-child(2) > [data-testid="plan-card"] > div.group > div.gap-3 > div:nth-child(1) > div.h-auto > div.w-full.justify-center > div.absolute > [data-testid="add-to-cart-plan"] > button.w-full > div.flex > tl-icon.p-1 > svg.aspect-square').click();
   cy.get('[data-testid="cart-modal-btn"] span.flex').click();
   cy.get('[data-testid="cart-modal-btn"] button.w-full').click();
@@ -27,7 +37,8 @@ it.skip('login-fail', function() {
   cy.get('#password input.pl-3').type('hsbahdbasbhdsabhdahs');
   //cy.get('#login button.w-full').click();
   //cy.contains('SIGNUP').should('be.visible');
-  cy.get('#login tl-loading.sc-tl-button').click();
-  cy.contains('Incorrect username or password.').should('be.visible');
+  */
+  //cy.get('#login tl-loading.sc-tl-button').click();
+  
 });
 });

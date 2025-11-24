@@ -1,7 +1,8 @@
 class MySubscriptionPage{
     selectorList(){
         const selectors = {
-            allCheckboxes: '#page-taly button.text-error-700 span.block',
+            markAllCheckboxes:"[style='width: 30px;']",
+            deleteConfirmButton: '#page-taly button.text-error-700 span.block',
             cancelButton: '[loading="false"]',
         }
 
@@ -13,7 +14,11 @@ class MySubscriptionPage{
     }
 
     markAllCheckboxes(){
-        cy.get(this.selectorList().allCheckboxes).click()
+        cy.get(this.selectorList().markAllCheckboxes).click()
+    }
+
+    deleteConfirmButtonClick(){
+        cy.get(this.selectorList().deleteConfirmButton).click()
     }
 
     cancelButtonClick(){

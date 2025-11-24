@@ -4,6 +4,8 @@ class CheckoutPage{
             setDeliveryButton: '[data-state="open"] #set-delivery-schedule',
             saveButton: '#save-and-continue-btn',
             placeOrderButton:'#place-order-btn',
+            checkoutPageMessage: 'Review your order details to continue',
+            checkoutPanel: "[padding='px-4']",
         }
 
         return selectors
@@ -23,6 +25,10 @@ class CheckoutPage{
 
     daySelector(day){
         cy.get(day).click()
+    }
+
+    checkIfUserLoggedin(){
+        cy.get(this.selectorList().checkoutPanel).contains(this.selectorList().checkoutPageMessage)
     }
 
 
