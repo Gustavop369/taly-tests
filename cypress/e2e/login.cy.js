@@ -1,6 +1,6 @@
-import UserData from "../fixtures/user-data.json"
-import LoginPage from "../pages/loginPage";
-import CheckoutPage from "../pages/checkoutPage";
+import userData from "../fixtures/user-data.json"
+import LoginPage from "../pages/loginPage.js";
+import CheckoutPage from "../pages/checkoutPage.js";
 
 const loginPage = new LoginPage();
 const checkout = new CheckoutPage();
@@ -10,17 +10,17 @@ const checkout = new CheckoutPage();
 describe('template spec', () => {
   it('Login Success', function() {
   loginPage.acessLoginPage()
-  loginPage.setUser(UserData.userAcess.login)
+  loginPage.setUser(userData.userAcess.login)
   loginPage.continueButton()
-  loginPage.setPassword(UserData.userAcess.password)
+  loginPage.setPassword(userData.userAcess.password)
   loginPage.submitButton()
 
   checkout.checkIfUserLoggedin()
   });
 
-it.only('Login Fail Wrong Email', function() {
+it('Login Fail Wrong Email', function() {
   loginPage.acessLoginPage()
-  loginPage.setUser(UserData.userWrongAcess.login)
+  loginPage.setUser(userData.userWrongAcess.loginWrongEmail)
   loginPage.continueButton()
   cy.contains('Please, provide a valid email address.').should('be.visible');
   //loginPage.setPassword(UserData.userWrongAcess.password)

@@ -67,6 +67,12 @@ describe('template spec', () => {
 
     menuPage.myAccountButtonClick()
     menuPage.mySubscriptionsButtonClick()
+
+    cy.reload(true)
+
+    menuPage.mySubscriptionsButtonClick()
+    menuPage.myAccountButtonClick()
+    menuPage.mySubscriptionsButtonClick()
    
     mySubscriptionsPage.planCheck(subscriptionslist.firstItem, searchSelector.firstSearch)
     mySubscriptionsPage.planCheck(subscriptionslist.secondItem, searchSelector.secondSearch)
