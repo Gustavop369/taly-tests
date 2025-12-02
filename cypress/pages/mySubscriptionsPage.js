@@ -4,6 +4,7 @@ class MySubscriptionPage{
             markAllCheckboxes:"[style='width: 30px;']",
             deleteConfirmButton: '#page-taly button.text-error-700 span.block',
             cancelButton: '[loading="false"]',
+            emptyListMessage:'#page-taly div.min-h-\\[72px\\]',
         }
 
         return selectors
@@ -25,6 +26,9 @@ class MySubscriptionPage{
         cy.get(this.selectorList().cancelButton).click()
     }
 
+    emptySubListCheck(emptymessage){
+        cy.get(this.selectorList().emptyListMessage).should('have.text', emptymessage)
+    }
 
 }
 

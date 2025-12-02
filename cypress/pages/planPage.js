@@ -5,6 +5,7 @@ class PlanPage{
             thirdPositionPlanSelector:'#radix-\\:r0\\: div:nth-child(2) div.justify-between',
             addCartButton:'[data-testid="add-to-cart-cta"] span.block',
             checkoutButton: '#proceed-to-checkout',
+            onceOffButton: '[data-testid="once-off-btn"] input.tl-option__input-element',
         }
 
         return selectors
@@ -22,6 +23,10 @@ class PlanPage{
 
     checkoutButton(){
         cy.get(this.selectorList().checkoutButton).click()
+    }
+
+    onceOffButtonCheck(){
+        cy.get(this.selectorList().onceOffButton).check()
     }
 
 

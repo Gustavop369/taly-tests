@@ -34,6 +34,10 @@ const subscriptionslist = {
   thirdItem: 'tr:nth-of-type(3) [data-testid="brand-header"] span.block',
 }
 
+const appMessages = {
+  emptySubList: 'This list is empty'
+}
+
 
 describe('template spec', () => {
   it('passes', () => {
@@ -42,18 +46,18 @@ describe('template spec', () => {
     loginPage.continueButton()
     loginPage.setPassword(userData.userAcess.password)
     loginPage.submitButton()
-
+    
     searchPage.searchBar(searchSelector.firstSearch, searchSelector.selectFirstPlan)
     planPage.frequencySelector()
     planPage.addCartButton()
-
+    
     searchPage.searchBar(searchSelector.secondSearch, searchSelector.selectSecondPlan)
     planPage.addCartButton()
-
+    
     searchPage.searchBar(searchSelector.thirdSearch, searchSelector.selectThirdPlan)
     planPage.addCartButton()
     planPage.checkoutButton()
-
+    
     checkoutPage.daySelector(daySelector.monday)
     checkoutPage.setDeliveryButton()
     checkoutPage.daySelector(daySelector.tuesday)
@@ -62,19 +66,18 @@ describe('template spec', () => {
     checkoutPage.setDeliveryButton()
     checkoutPage.saveButton()
     checkoutPage.placeOrderButton()
-
-    cy.reload(true)
-
+    checkoutPage.orderConfirmation()
+    
     menuPage.myAccountButtonClick()
     menuPage.mySubscriptionsButtonClick()
-   
+       
     mySubscriptionsPage.planCheck(subscriptionslist.firstItem, searchSelector.firstSearch)
     mySubscriptionsPage.planCheck(subscriptionslist.secondItem, searchSelector.secondSearch)
     mySubscriptionsPage.planCheck(subscriptionslist.thirdItem, searchSelector.thirdSearch)
-
+    
     mySubscriptionsPage.markAllCheckboxes()
     mySubscriptionsPage.deleteConfirmButtonClick()
     mySubscriptionsPage.cancelButtonClick()
-
+    mySubscriptionsPage.emptySubListCheck(appMessages.emptySubList)
   })
 })

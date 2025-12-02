@@ -6,10 +6,14 @@ class CheckoutPage{
             placeOrderButton:'#place-order-btn',
             checkoutPageMessage: 'Review your order details to continue',
             checkoutPanel: "[padding='px-4']",
+            orderConfirmation: '[data-testid="confirmation-title"] span.leading-normal',
         }
 
+        
         return selectors
     }
+    
+    invoiceId;
 
     setDeliveryButton(){
         cy.get(this.selectorList().setDeliveryButton).click()
@@ -29,6 +33,19 @@ class CheckoutPage{
 
     checkIfUserLoggedin(){
         cy.get(this.selectorList().checkoutPanel).contains(this.selectorList().checkoutPageMessage)
+    }
+
+    getInvoiceID(){
+        cy.get(this.selectorList().orderConfirmation)
+            .should('be.visible')
+            .then(($element) => {
+            const fullText = $element.text().trim(); 
+            this.invoiceId = fullText.replace('#','')
+        });
+    }
+
+    orderConfirmation(){
+        cy.get(this.selectorList().orderConfirmation).should('be.visible')
     }
 
 
