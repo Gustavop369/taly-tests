@@ -39,7 +39,7 @@ const appMessages = {
 }
 
 
-describe('template spec', () => {
+describe('Check if subscriptions are working', () => {
   it('passes', () => {
     loginPage.acessLoginPage()
     loginPage.setUser(userData.userAcess.login)

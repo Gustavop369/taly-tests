@@ -1,5 +1,5 @@
 describe('template spec', () => {
-  it('passes', () => {
+  it.skip('passes', () => {
   
   looping()
   

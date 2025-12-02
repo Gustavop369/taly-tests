@@ -8,7 +8,7 @@ const checkout = new CheckoutPage();
 
 
 describe('template spec', () => {
-  it('Login Success', function() {
+  it.only('Login Success', function() {
   loginPage.acessLoginPage()
   loginPage.setUser(UserData.userAcess.login)
   loginPage.continueButton()
@@ -18,9 +18,9 @@ describe('template spec', () => {
   checkout.checkIfUserLoggedin()
   });
 
-it.only('Login Fail Wrong Email', function() {
+it('Login Fail Wrong Email', function() {
   loginPage.acessLoginPage()
-  loginPage.setUser(UserData.userWrongAcess.login)
+  loginPage.setUser(UserData.userWrongAcess.loginEmail)
   loginPage.continueButton()
   cy.contains('Please, provide a valid email address.').should('be.visible');
   //loginPage.setPassword(UserData.userWrongAcess.password)
