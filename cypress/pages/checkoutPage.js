@@ -6,7 +6,8 @@ class CheckoutPage{
             placeOrderButton:'#place-order-btn',
             checkoutPageMessage: 'Review your order details to continue',
             checkoutPanel: "[padding='px-4']",
-            orderConfirmation: '[data-testid="confirmation-title"] span.leading-normal',
+            orderConfirmation: '[data-testid="confirmation-title"]',
+            orderIdConfirmation: '[data-testid="confirmation-title"] span.leading-normal',
         }
 
         
@@ -36,7 +37,7 @@ class CheckoutPage{
     }
 
     getInvoiceID(){
-        cy.get(this.selectorList().orderConfirmation)
+        cy.get(this.selectorList().orderIdConfirmation)
             .should('be.visible')
             .then(($element) => {
             const fullText = $element.text().trim(); 
