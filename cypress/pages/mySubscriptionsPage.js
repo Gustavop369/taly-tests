@@ -1,7 +1,7 @@
 class MySubscriptionPage{
     selectorList(){
         const selectors = {
-            markAllCheckboxes:"[style='width: 30px;']",
+            markAllCheckboxes:"[style='border-radius: 6px;']",
             deleteConfirmButton: '#page-taly button.text-error-700 span.block',
             cancelButton: '[loading="false"]',
             emptyListMessage:'#page-taly div.min-h-\\[72px\\]',
@@ -15,7 +15,7 @@ class MySubscriptionPage{
     }
 
     markAllCheckboxes(){
-        cy.get(this.selectorList().markAllCheckboxes).click()
+        cy.get(this.selectorList().markAllCheckboxes).first().click()
     }
 
     deleteConfirmButtonClick(){
