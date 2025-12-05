@@ -19,7 +19,7 @@ const searchSelector = {
 }
 
 
-describe('Buy a plan and check transaction', () => {
+describe('Buy a plan and check if transaction exist', () => {
   it('Check if product is in transactions', () => {
     loginPage.acessLoginPage()
     loginPage.setUser(userData.userAcess.login)
@@ -30,6 +30,7 @@ describe('Buy a plan and check transaction', () => {
     searchPage.searchBar(searchSelector.firstSearch, searchSelector.selectFirstPlan)
     planPage.onceOffButtonCheck()
     planPage.addCartButton()
+    menuPage.myCartButtonClick()
     planPage.checkoutButton()
     
     checkoutPage.setDeliveryButton()

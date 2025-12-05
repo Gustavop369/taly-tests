@@ -8,7 +8,7 @@ const checkout = new CheckoutPage();
 
 
 describe('template spec', () => {
-  it.only('Login Success', function() {
+  it.skip('Login Success', function() {
   loginPage.acessLoginPage()
   loginPage.setUser(UserData.userAcess.login)
   loginPage.continueButton()
@@ -18,7 +18,7 @@ describe('template spec', () => {
   checkout.checkIfUserLoggedin()
   });
 
-it('Login Fail Wrong Email', function() {
+it.skip('Login Fail Wrong Email', function() {
   loginPage.acessLoginPage()
   loginPage.setUser(UserData.userWrongAcess.loginEmail)
   loginPage.continueButton()

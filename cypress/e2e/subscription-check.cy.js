@@ -56,6 +56,7 @@ describe('Check if subscriptions are working', () => {
     
     searchPage.searchBar(searchSelector.thirdSearch, searchSelector.selectThirdPlan)
     planPage.addCartButton()
+    menuPage.myCartButtonClick()
     planPage.checkoutButton()
     
     checkoutPage.daySelector(daySelector.monday)
